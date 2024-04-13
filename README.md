@@ -1,6 +1,6 @@
 # news_stream
 
-A new Flutter project.
+A new Flutter project using NewsApi
 
 ## Getting Started
 
