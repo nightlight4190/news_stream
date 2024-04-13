@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:news_stream/view/screens/detail.dart';
 
 class NewsContainer extends StatelessWidget {
-  String imageUrl;
+  String imgUrl;
   String newsHead;
   String newsDesc;
+  String newsCnt;
   String newsUrl;
   NewsContainer(
       {super.key,
-      required this.imageUrl,
+      required this.imgUrl,
       required this.newsHead,
       required this.newsDesc,
-      required this.newsUrl});
+      required this.newsUrl,
+      required this.newsCnt});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +24,8 @@ class NewsContainer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.network(
-            imageUrl,
-            height: 400,
+            imgUrl,
+            height: 350,
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
           ),
@@ -35,7 +38,9 @@ class NewsContainer extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  newsHead,
+                  newsHead.length > 60
+                      ? "${newsHead.substring(0, 60)}"
+                      : newsHead,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -46,6 +51,18 @@ class NewsContainer extends StatelessWidget {
                 ),
                 Text(
                   newsDesc,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.black54,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  newsCnt.length > 200
+                      ? newsCnt.substring(0, 300)
+                      : "${newsCnt.toString().substring(0, newsCnt.length - 15)}...",
                   style: TextStyle(
                     fontSize: 16,
                   ),
@@ -61,10 +78,17 @@ class NewsContainer extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    print('going to $newsUrl');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                DetailScreen(newsUrl: newsUrl)));
                   },
                   child: Text(
                     'Read More',
+                    style: TextStyle(
+                      color: Colors.teal,
+                    ),
                   ),
                 ),
               ],
