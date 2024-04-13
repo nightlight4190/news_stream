@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:news_stream/controller/fetchNews.dart';
 import 'package:news_stream/view/screens/widgets/newsContainer.dart';
 import 'package:news_stream/view/utilis/colors.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    FetchNews.fetchNews();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
