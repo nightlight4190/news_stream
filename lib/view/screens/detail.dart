@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:news_stream/view/screens/home.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -30,11 +31,17 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'News Stream',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: Colors.teal,
+        title: InkWell(
+          onTap: () {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          },
+          child: Text(
+            'News Stream',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: Colors.teal,
+            ),
           ),
         ),
         leading: Padding(

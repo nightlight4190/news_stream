@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'view/screens/home.dart';
+import 'package:news_stream/view/screens/splash.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,7 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'News Stream',
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: const HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }
