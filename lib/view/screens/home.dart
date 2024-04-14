@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   imgUrl: newsArt.imgUrl,
                   newsCnt: newsArt.newsCnt,
                   newsHead: newsArt.newsHead,
-                  newsDesc: newsArt.newsDesc,
+                  newsDes: newsArt.newsDesc,
                   newsUrl: newsArt.newsUrl);
         },
       ),
